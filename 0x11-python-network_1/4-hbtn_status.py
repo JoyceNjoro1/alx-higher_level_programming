@@ -9,9 +9,10 @@ if __name__ == "__main__":
     try:
         response = requests.get(url)
         response.raise_for_status()  # Raise exception for bad status codes
+        content = response.text
         print("Body response:")
-        print("\t- type:", type(response.text).__name__)
-        print("\t- content:", response.text)
+        print("\t- type:", type(content).__name__)
+        print("\t- content:", content)
     except requests.exceptions.RequestException as e:
         print("Error fetching URL:", e)
 
