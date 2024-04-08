@@ -1,10 +1,17 @@
 #!/usr/bin/python3
-"""fetches https://intranet.hbtn.io/status."""
+"""
+Fetches https://alx-intranet.hbtn.io/status using requests
+"""
 import requests
 
-
 if __name__ == "__main__":
-    r = requests.get("https://intranet.hbtn.io/status")
-    print("Body response:")
-    print("\t- type: {}".format(type(r.text)))
-    print("\t- content: {}".format(r.text))
+    url = 'https://alx-intranet.hbtn.io/status'
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise exception for bad status codes
+        print("Body response:")
+        print("\t- type:", type(response.text).__name__)
+        print("\t- content:", response.text)
+    except requests.exceptions.RequestException as e:
+        print("Error fetching URL:", e)
+
