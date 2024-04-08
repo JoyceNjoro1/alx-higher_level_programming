@@ -1,14 +1,8 @@
 #!/bin/bash
 
-# Check if the URL argument is provided
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <URL>"
-    exit 1
-fi
+# Send a GET request to the URL with the X-School-User-Id header
+response=$(curl -sH "X-School-User-Id: 98" "$1")
 
-# URL provided as argument
-URL=$1
-
-# Send GET request with custom header and display response body
-curl -sSL -H "X-School-User-Id: 98" "$URL"
+# Print the response
+echo "$response"
 
