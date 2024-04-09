@@ -1,15 +1,14 @@
-#!/usr/bin/python3
+!/usr/bin/python3
 """
-Sends a POST request to a URL with an email as a parameter and displays the response body
+Sends a POST request 
 """
 import requests
 import sys
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     url = sys.argv[1]
     email = sys.argv[2]
 
     data = {'email': email}
     response = requests.post(url, data=data)
     print(response.text)
-
